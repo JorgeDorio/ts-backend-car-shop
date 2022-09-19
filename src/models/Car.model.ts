@@ -1,5 +1,5 @@
 import { model as mongooseCreateModel, Schema } from 'mongoose';
-import { ICar } from '../interfaces/ICar'
+import { ICar } from '../interfaces/ICar';
 import MongoModel from './index.model';
 
 const carsMongooseSchema = new Schema<ICar>({
@@ -8,7 +8,7 @@ const carsMongooseSchema = new Schema<ICar>({
   color: String,
   buyValue: Number,
   seatsQty: Number,
-  doorsQty: Number
+  doorsQty: Number,
 });
 
 class Cars extends MongoModel<ICar> {
