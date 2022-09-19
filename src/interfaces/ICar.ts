@@ -1,7 +1,7 @@
 import { z } from 'zod';
-import { IVehicle } from './IVehicle';
+import { IVehicle, VehicleZodSchema } from './IVehicle';
 
-const CarZodSchema = z.object({
+export const CarZodSchema = VehicleZodSchema.extend({
   doorsQty: z.number().min(2).max(4),
   seatsQty: z.number().min(2).max(7),
 });
