@@ -6,11 +6,12 @@ import CarValidation from '../validations/car.validation';
 
 const router = Router();
 
-const car = new CarModel();
-const carService = new CarService(car);
+const carModel = new CarModel();
+const carService = new CarService(carModel);
 const carController = new CarController(carService);
 const carValidation = new CarValidation();
 
 router.post('/', carValidation.validate, (req, res) => carController.create(req, res));
+router.get('/', carValidation.validate, (req, res) => carController.read(req, res));
 
 export default router;

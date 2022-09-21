@@ -1,6 +1,7 @@
 import { model as mongooseCreateModel, Schema } from 'mongoose';
 import { ICar } from '../interfaces/ICar';
 import MongoModel from './index.model';
+import ModelDefault from './model';
 
 const carsMongooseSchema = new Schema<ICar>({
   model: String,
@@ -11,7 +12,7 @@ const carsMongooseSchema = new Schema<ICar>({
   doorsQty: Number,
 });
 
-class Cars extends MongoModel<ICar> {
+class Cars extends ModelDefault<ICar> {
   constructor(model = mongooseCreateModel('Cars', carsMongooseSchema)) {
     super(model);
   }
