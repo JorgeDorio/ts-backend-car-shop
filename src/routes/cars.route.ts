@@ -12,6 +12,7 @@ const carController = new CarController(carService);
 const carValidation = new CarValidation();
 
 router.post('/', carValidation.validate, (req, res) => carController.create(req, res));
-router.get('/', carValidation.validate, (req, res) => carController.read(req, res));
+router.get('/:id', carValidation.idValidation, (req, res) => carController.readOne(req, res));
+router.get('/', (req, res) => carController.read(req, res));
 
 export default router;
