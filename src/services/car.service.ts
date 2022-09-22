@@ -29,6 +29,11 @@ class CarService implements IService<ICar> {
     const result = await this._car.readOne(id);
     return result;
   };
+
+  public delete = async (id: string): Promise<ICar | null> => {
+    const result = await this._car.delete(id);
+    return result;
+  };
 }
 
 export default CarService;

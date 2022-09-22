@@ -18,7 +18,7 @@ export default abstract class ModelDefault<T> implements IModel<T> {
       { ...obj } as UpdateQuery<T>,
     );
   }
-  public async delete(string: string): Promise<T | null> {
-    return this.data.findByIdAndDelete({ string });
+  public async delete(_id: string): Promise<T | null> {
+    return this.data.findByIdAndDelete({ _id });
   }
 }
