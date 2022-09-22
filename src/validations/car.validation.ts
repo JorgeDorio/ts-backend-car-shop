@@ -16,4 +16,12 @@ export default class CarValidation {
     }
     next();
   };
+
+  public bodyValidation = (req: Request, res: Response, next: NextFunction) => {
+    const { body } = req;
+    const parsed = CarZodSchema.safeParse(body);
+    if (!parsed.success) return res.status(400).end();
+    console.log('teste');
+    next();
+  };
 }

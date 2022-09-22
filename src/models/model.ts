@@ -9,14 +9,13 @@ export default abstract class ModelDefault<T> implements IModel<T> {
   public async read(): Promise<T[]> {
     return this.data.find();
   }
-  public async readOne(string: string): Promise<T | null> {
-    return this.data.findOne({ string });
+  public async readOne(_id: string): Promise<T | null> {
+    return this.data.findOne({ _id });
   }
   public async update(_id: string, obj: Partial<T>): Promise<T | null> {
     return this.data.findByIdAndUpdate(
       { _id },
       { ...obj } as UpdateQuery<T>,
-      { new: true },
     );
   }
   public async delete(string: string): Promise<T | null> {
