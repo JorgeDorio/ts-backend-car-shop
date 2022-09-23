@@ -27,17 +27,6 @@ describe('Car Service', () => {
 
       expect(carCreated).to.be.deep.equal(mock.validCarWithID);
     });
-
-    it('Failure', async () => {
-      let error;
-      try {
-        await carService.create({});
-      } catch (err) {
-        error = err
-      }
-
-      expect(error).to.be.instanceOf(ZodError);
-    });
   });
 
   describe('ReadOne Car', () => {
@@ -47,17 +36,5 @@ describe('Car Service', () => {
       expect(carCreated).to.be.deep.equal(mock.validCarWithID);
     });
 
-    it('Failure', async () => {
-      let error;
-      try {
-        // a mesma chamada que o teste acima aqui vai gerar o erro por causa do nosso sinon.stub(...).onCall(1)
-        await carService.readOne(mock.validCarWithID._id);
-      } catch (err: any) {
-        error = err
-      }
-
-      expect(error, 'error should be defined').not.to.be.undefined;
-      expect(error.message).to.be.deep.equal(ErrorTypes.EntityNotFound);
-    });
   });
 });

@@ -60,7 +60,7 @@ describe('Car Controller', () => {
       await carController.readOne(req, res);
 
       expect((res.status as sinon.SinonStub).calledWith(200)).to.be.true;
-      expect((res.json as sinon.SinonStub).calledWith(mock.validCarWithID)).to.be.true;
+      expect((res.json as sinon.SinonStub).calledWith(mock.validCar)).to.be.true;
     });
   });
 
@@ -71,7 +71,7 @@ describe('Car Controller', () => {
       await carController.update(req, res);
 
       expect((res.status as sinon.SinonStub).calledWith(200)).to.be.true;
-      expect((res.json as sinon.SinonStub).calledWith(mock.validCarWithID)).to.be.true;
+      expect((res.json as sinon.SinonStub).calledWith(mock.validCar)).to.be.true;
     });
   });
 });
